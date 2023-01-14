@@ -1,0 +1,17 @@
+<p>list-movie-theater works!</p>
+
+<div *ngIf="movieTheaters$ | async as movieTheaters; else loading">
+    <ul>
+        <li *ngFor="let movieTheater of movieTheaters">
+            {{ movieTheater.global_id }}: {{ movieTheater.Cells.CommonName }}
+        </li>
+    </ul>
+</div>
+
+<ng-template #loading>Loading...</ng-template>
+
+<button (click)="refresh()">Refresh</button>
+
+<button *ngIf="canLoadMore" (click)="chunkLoad()">Chunk load</button>
+
+<button *ngIf="canLoadMore" (click)="loadMore()">More</button>

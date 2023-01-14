@@ -1,0 +1,17 @@
+<p>list-theater works!</p>
+
+<!-- <ul>
+    <li *ngFor="let theater of theaters">
+        {{ theater.global_id }}: {{ theater.Cells.CommonName }}
+    </li>
+</ul> -->
+
+<div *ngIf="theaters$ | async as theaters; else loading">
+    <ul>
+        <li *ngFor="let theater of theaters">
+            {{ theater.global_id }}: {{ theater.Cells.CommonName }}
+        </li>
+    </ul>
+</div>
+
+<ng-template #loading>Loading...</ng-template>
